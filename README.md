@@ -4,10 +4,12 @@ I add this accounts to test the admin and regular roles:
 
 ADMIN:
 email: admin@example.com
+
 password: password
 
 REGULAR:
 email: user@example.com
+
 password: password
 
 ## Objective
