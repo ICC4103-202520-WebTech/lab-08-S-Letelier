@@ -1,5 +1,15 @@
 # Lab 8 — Recipe Book Application: Authorization and User Roles
 
+I add this accounts to test the admin and regular roles:
+
+ADMIN:
+email: admin@example.com
+password: password
+
+REGULAR:
+email: user@example.com
+password: password
+
 ## Objective
 Extend the Recipe Book application by implementing **authorization** so that only certain users can perform specific actions.  
 You will use either **CanCanCan** or **Pundit** to manage permissions, and define user **roles** in the `User` model using an `enum`.
