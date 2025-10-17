@@ -1,0 +1,36 @@
+<h1>Recipes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Time</th>
+      <th>Difficulty</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.title %></td>
+        <td><%= recipe.cook_time %> min</td>
+        <td><%= recipe.difficulty %></td>
+        <td>
+          <%= link_to "See", recipe_path(recipe), class: "btn btn-success btn-sm" %>
+
+          <% if can? :update, recipe %>
+            <%= link_to "Edit", edit_recipe_path(recipe), class: "btn btn-warning btn-sm" %>
+          <% end %>
+
+          <% if can? :destroy, recipe %>
+            <%= button_to "Delete", recipe_path(recipe), method: :delete, data: { turbo_confirm: "¿You sure about that?" }, class: "btn btn-danger btn-sm" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if can? :create, Recipe %>
+  <%= link_to "New Recipe", new_recipe_path, class: "btn btn-success" %>
+<% end %>

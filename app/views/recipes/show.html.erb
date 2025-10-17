@@ -1,0 +1,17 @@
+<h1><%= @recipe.title %></h1>
+
+<p>Preparation Time: <%= @recipe.cook_time %> minutos</p>
+<p>Difficulty: <%= @recipe.difficulty %></p>
+<p>Instructions:</p>
+<div><%= @recipe.instructions.to_s.html_safe %></div>
+
+<% if can? :update, @recipe %>
+  <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-warning" %>
+<% end %>
+
+<% if can? :destroy, @recipe %>
+  <%= button_to "Delete", recipe_path(@recipe), method: :delete, data: { turbo_confirm: "¿You sure about that?" }, class: "btn btn-danger" %>
+<% end %>
+
+<p></p>
+<%= link_to "Back to List", recipes_path, class: "btn btn-secondary" %>

@@ -1,0 +1,24 @@
+<%= form_with model: recipe, local: true do |f| %>
+
+  <div class="mb-3">
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :cook_time, "Cook Time (minutes)" %>
+    <%= f.number_field :cook_time, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :difficulty, "Difficulty" %>
+    <%= f.select :difficulty, ["Easy", "Medium", "Hard"], {}, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :instructions, "Instructions" %>
+    <%= f.rich_text_area :instructions %>
+  </div>
+
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
